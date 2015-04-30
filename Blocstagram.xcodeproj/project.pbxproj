@@ -163,6 +163,7 @@
 		C30BD0241AF1FFF200D39A85 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BLC;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Bloc;
 				TargetAttributes = {
