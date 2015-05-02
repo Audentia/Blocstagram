@@ -7,7 +7,10 @@
 //
 
 #import "BLCImagesTableViewController.h"
-
+#import "BLCDataSource.h"
+#import "BLCMedia.h"
+#import "BLCUser.h"
+#import "BLCComment.h"
 
 @interface BLCImagesTableViewController ()
 
@@ -19,7 +22,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.images = [NSMutableArray array];
     }
     return self;
 }
@@ -27,13 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    for (int i = 1; i <= 10; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
-        UIImage *image = [UIImage imageNamed:imageName];
-        if (image) {
-            [self.images addObject:image];
-        }
-    }
+
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
     
@@ -49,7 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (NSArray *)items {
+    return [BLCDataSource sharedInstance].mediaItems;
+}
 
 #pragma mark - Table view data source
 
@@ -57,13 +55,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.images.count;
-}
-
-
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *image = self.images[indexPath.row];
-    return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
+    return [self items].count;
 }
 
 
@@ -86,12 +78,17 @@
         [cell.contentView addSubview:imageView];
     }
     
-    UIImage *image = self.images[indexPath.row];
-    imageView.image = image;
+    BLCMedia *item = self.items[indexPath.row];
+    imageView.image = item.image;
     
     return cell;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BLCMedia *item = self.items[indexPath.row];
+    UIImage *image = item.image;
+    return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
+}
 
 
 // Override to support conditional editing of the table view.
@@ -102,14 +99,15 @@
 }
 
 
-
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        UIImage *image = self.images[indexPath.row];
+        BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+        UIImage *image = item.image;
         if (image) {
-            [self.images removeObjectAtIndex:indexPath.row];
+            [];
         }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
@@ -120,7 +118,7 @@
     }
 
 }
-
+*/
 
 /*
 // Override to support rearranging the table view.
