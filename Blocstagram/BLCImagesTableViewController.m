@@ -47,7 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSArray *)mediaItemsFromDataSource {
+- (NSMutableArray *)mediaItemsFromDataSource {
     return [BLCDataSource sharedInstance].mediaItems;
 }
 
@@ -89,7 +89,7 @@
         // Delete the row from the data source
         BLCMedia *item = self.mediaItemsFromDataSource[indexPath.row];
         if (item) {
-           // [mediaItemsFromDataSource removeObjectAtIndex:indexPath.row];
+           [self.mediaItemsFromDataSource removeObjectAtIndex:indexPath.row];
         }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
