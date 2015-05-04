@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3081BEC1AF5C29F00559C83 /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3081BEB1AF5C29F00559C83 /* BLCMediaTableViewCell.m */; };
 		C30BD0321AF1FFF300D39A85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD0311AF1FFF300D39A85 /* main.m */; };
 		C30BD0351AF1FFF300D39A85 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD0341AF1FFF300D39A85 /* BLCAppDelegate.m */; };
 		C30BD03D1AF1FFF300D39A85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30BD03C1AF1FFF300D39A85 /* Images.xcassets */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3081BEA1AF5C29F00559C83 /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCMediaTableViewCell.h; path = Blocstagram/BLCMediaTableViewCell.h; sourceTree = "<group>"; };
+		C3081BEB1AF5C29F00559C83 /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCMediaTableViewCell.m; path = Blocstagram/BLCMediaTableViewCell.m; sourceTree = "<group>"; };
 		C30BD02C1AF1FFF300D39A85 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30BD0301AF1FFF300D39A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C30BD0311AF1FFF300D39A85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 		C30BD0231AF1FFF200D39A85 = {
 			isa = PBXGroup;
 			children = (
+				C3081BEA1AF5C29F00559C83 /* BLCMediaTableViewCell.h */,
+				C3081BEB1AF5C29F00559C83 /* BLCMediaTableViewCell.m */,
 				C30BD02E1AF1FFF300D39A85 /* Blocstagram */,
 				C30BD0481AF1FFF300D39A85 /* BlocstagramTests */,
 				C30BD02D1AF1FFF300D39A85 /* Products */,
@@ -286,6 +291,7 @@
 				C3C15BF81AF2048C009B4A5F /* BLCImagesTableViewController.m in Sources */,
 				C3C15BFE1AF487F3009B4A5F /* BLCMedia.m in Sources */,
 				C3C15C011AF488B9009B4A5F /* BLCComment.m in Sources */,
+				C3081BEC1AF5C29F00559C83 /* BLCMediaTableViewCell.m in Sources */,
 				C3C15C041AF4895C009B4A5F /* BLCDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
