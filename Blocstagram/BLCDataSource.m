@@ -120,7 +120,7 @@
 }
 
 - (NSArray *) mediaItemsAtIndexes:(NSIndexSet *)indexes {
-    return [self.mediaItems objectAtIndex:indexes];
+    return [self.mediaItems objectsAtIndexes:indexes];
 }
 
 - (void) insertObject:(BLCMedia *)object inMediaItemsAtIndex:(NSUInteger)index {
