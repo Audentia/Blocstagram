@@ -15,6 +15,11 @@
     NSMutableArray *_mediaItems;
 }
 
+@property (nonatomic, strong) NSArray *mediaItems;
+
+@property (nonatomic, assign) BOOL isRefreshing;
+@property (nonatomic, assign) BOOL isLoadingOlderItems;
+
 @end
 
 @implementation BLCDataSource
@@ -63,7 +68,19 @@
         }
     }
     
-    _mediaItems = randomMediaItems;
+    self.mediaItems = randomMediaItems;
+}
+
+- (NSString *) randomStringOfLength:(NSUInteger) len {
+    NSString *alphabet = @"abcdefghijklmnopqrstuvwxyz";
+    
+    NSMutableString *s = [NSMutableString string];
+    for (NSUInteger i = 0U; i < len; i++) {
+        u_int32_t r = arc4random_uniform((u_int32_t)[alphabet length]);
+        unichar c = [alphabet characterAtIndex:r];
+        [s appendFormat:@"%C", c];
+    }
+    return [NSString stringWithString:s];
 }
 
 - (BLCUser *) randomUser {
@@ -97,16 +114,44 @@
     return comment;
 }
 
-- (NSString *) randomStringOfLength:(NSUInteger) len {
-    NSString *alphabet = @"abcdefghijklmnopqrstuvwxyz";
-    
-    NSMutableString *s = [NSMutableString string];
-    for (NSUInteger i = 0U; i < len; i++) {
-        u_int32_t r = arc4random_uniform((u_int32_t)[alphabet length]);
-        unichar c = [alphabet characterAtIndex:r];
-        [s appendFormat:@"%C", c];
+#pragma mark - Completion Handlers
+
+- (void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+        BLCMedia *media = [[BLCMedia alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"10.jpg"];
+        media.caption = [self randomStringOfLength:7];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO insertObject:media atIndex:0];
+        
+        self.isRefreshing = NO;
+        
+        if (completionHandler) {
+            completionHandler(nil);
+        }
     }
-    return [NSString stringWithString:s];
+}
+
+- (void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    if (self.isLoadingOlderItems == NO) {
+        self.isLoadingOlderItems = YES;
+        BLCMedia *media = [[BLCMedia alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"1.jpg"];
+        media.caption = [self randomStringOfLength:7];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO addObject:media];
+        
+        self.isLoadingOlderItems = NO;
+        
+        if (completionHandler) {
+            completionHandler(nil);
+        }
+    }
 }
 
 #pragma mark - Key/Value Observing
