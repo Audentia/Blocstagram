@@ -8,6 +8,7 @@
 
 #import "BLCLoginViewController.h"
 #import "BLCDataSource.h"
+#import "BLCMedia.h"
 
 @interface BLCLoginViewController () <UIWebViewDelegate>
 
@@ -47,6 +48,15 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     self.title = @"Login";
     self.backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self.webView action:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = self.backButton;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    if (item.image) {
+        return 350;
+    } else {
+        return 150;
+    }
 }
 
 - (NSString *)redirectURI {
