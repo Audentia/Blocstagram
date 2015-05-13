@@ -12,8 +12,13 @@
 #import "BLCUser.h"
 #import "BLCComment.h"
 #import "BLCMediaTableViewCell.h"
+#import "BLCMediaFullScreenViewController.h"
+#import "BLCMediaFullScreenAnimator.h"
+#import "BLCShareStuff.h"
 
-@interface BLCImagesTableViewController ()
+@interface BLCImagesTableViewController () <BLCMediaTableViewCellDelegate, UIViewControllerTransitioningDelegate>
+
+@property (nonatomic, weak) UIImageView *lastTappedImageView;
 
 @end
 
@@ -130,6 +135,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+    cell.delegate = self;
     cell.mediaItem = self.mediaItemsFromDataSource[indexPath.row];
     return cell;
 }
@@ -137,6 +143,54 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLCMedia *item = self.mediaItemsFromDataSource[indexPath.row];
     return [BLCMediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
+}
+
+#pragma mark - BLCMediaTableViewCellDelegate
+
+- (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+    self.lastTappedImageView = imageView;
+    BLCMediaFullScreenViewController *fullScreenVC = [[BLCMediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+    
+    fullScreenVC.transitioningDelegate = self;
+    fullScreenVC.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [self presentViewController:fullScreenVC animated:YES completion:nil];
+}
+
+- (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (cell.mediaItem.caption.length > 0) {
+        [itemsToShare addObject:cell.mediaItem.caption];
+    }
+    
+    if (cell.mediaItem.image) {
+        [itemsToShare addObject:cell.mediaItem.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+   //call BLCShareStuff to implement the UIActivityViewController
+        BLCShareStuff *shareNow = [[BLCShareStuff alloc] init];
+        [shareNow shareItems:itemsToShare];
+    }
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    
+    BLCMediaFullScreenAnimator *animator = [BLCMediaFullScreenAnimator new];
+    animator.presenting = YES;
+    animator.cellImageView = self.lastTappedImageView;
+    return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    BLCMediaFullScreenAnimator *animator = [BLCMediaFullScreenAnimator new];
+    animator.cellImageView = self.lastTappedImageView;
+    return animator;
 }
 
 /*

@@ -13,6 +13,7 @@
 		C30BD0351AF1FFF300D39A85 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD0341AF1FFF300D39A85 /* BLCAppDelegate.m */; };
 		C30BD03D1AF1FFF300D39A85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30BD03C1AF1FFF300D39A85 /* Images.xcassets */; };
 		C30BD04C1AF1FFF300D39A85 /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */; };
+		C3B1F10C1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B1F10B1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m */; };
 		C3C15BEC1AF203B7009B4A5F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C15BE21AF203B7009B4A5F /* 1.jpg */; };
 		C3C15BED1AF203B7009B4A5F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C15BE31AF203B7009B4A5F /* 2.jpg */; };
 		C3C15BEE1AF203B7009B4A5F /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C15BE41AF203B7009B4A5F /* 3.jpg */; };
@@ -28,6 +29,8 @@
 		C3C15BFE1AF487F3009B4A5F /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C15BFD1AF487F3009B4A5F /* BLCMedia.m */; };
 		C3C15C011AF488B9009B4A5F /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C15C001AF488B9009B4A5F /* BLCComment.m */; };
 		C3C15C041AF4895C009B4A5F /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C15C031AF4895C009B4A5F /* BLCDataSource.m */; };
+		C3C961AF1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C961AE1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m */; };
+		C3C961B21B01D29F00DC9953 /* BLCShareStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C961B11B01D29F00DC9953 /* BLCShareStuff.m */; };
 		C3EEC7F71AFAE92400085A4B /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EEC7F61AFAE92400085A4B /* BLCLoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,8 @@
 		C30BD0451AF1FFF300D39A85 /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30BD04A1AF1FFF300D39A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
+		C3B1F10A1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = "<group>"; };
+		C3B1F10B1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = "<group>"; };
 		C3C15BE21AF203B7009B4A5F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		C3C15BE31AF203B7009B4A5F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		C3C15BE41AF203B7009B4A5F /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -76,6 +81,10 @@
 		C3C15C001AF488B9009B4A5F /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
 		C3C15C021AF4895C009B4A5F /* BLCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDataSource.h; sourceTree = "<group>"; };
 		C3C15C031AF4895C009B4A5F /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
+		C3C961AD1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenAnimator.h; sourceTree = "<group>"; };
+		C3C961AE1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
+		C3C961B01B01D29F00DC9953 /* BLCShareStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCShareStuff.h; sourceTree = "<group>"; };
+		C3C961B11B01D29F00DC9953 /* BLCShareStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCShareStuff.m; sourceTree = "<group>"; };
 		C3EEC7F51AFAE92400085A4B /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
 		C3EEC7F61AFAE92400085A4B /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +147,12 @@
 				C3081BEB1AF5C29F00559C83 /* BLCMediaTableViewCell.m */,
 				C3EEC7F51AFAE92400085A4B /* BLCLoginViewController.h */,
 				C3EEC7F61AFAE92400085A4B /* BLCLoginViewController.m */,
+				C3C961AD1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.h */,
+				C3C961AE1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m */,
+				C3B1F10A1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.h */,
+				C3B1F10B1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m */,
+				C3C961B01B01D29F00DC9953 /* BLCShareStuff.h */,
+				C3C961B11B01D29F00DC9953 /* BLCShareStuff.m */,
 				C3C15C021AF4895C009B4A5F /* BLCDataSource.h */,
 				C3C15C031AF4895C009B4A5F /* BLCDataSource.m */,
 				C3C15BF91AF4862A009B4A5F /* BLCUser.h */,
@@ -350,11 +365,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C15BFB1AF4862A009B4A5F /* BLCUser.m in Sources */,
+				C3C961AF1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m in Sources */,
 				C30BD0351AF1FFF300D39A85 /* BLCAppDelegate.m in Sources */,
 				C30BD0321AF1FFF300D39A85 /* main.m in Sources */,
 				C3C15BF81AF2048C009B4A5F /* BLCImagesTableViewController.m in Sources */,
 				C3C15BFE1AF487F3009B4A5F /* BLCMedia.m in Sources */,
+				C3C961B21B01D29F00DC9953 /* BLCShareStuff.m in Sources */,
 				C3C15C011AF488B9009B4A5F /* BLCComment.m in Sources */,
+				C3B1F10C1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m in Sources */,
 				C3081BEC1AF5C29F00559C83 /* BLCMediaTableViewCell.m in Sources */,
 				C3C15C041AF4895C009B4A5F /* BLCDataSource.m in Sources */,
 				C3EEC7F71AFAE92400085A4B /* BLCLoginViewController.m in Sources */,
