@@ -170,6 +170,7 @@
     
     if (itemsToShare.count > 0) {
    //call BLCShareStuff to implement the UIActivityViewController
+        //what goes here
         BLCShareStuff *shareNow = [[BLCShareStuff alloc] init];
         [shareNow shareItems:itemsToShare];
     }
