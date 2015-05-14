@@ -8,11 +8,26 @@
 
 #import "BLCShareStuff.h"
 
+
 @implementation BLCShareStuff
 
-- (void) shareItems:(NSMutableArray *)itemsToShare {
++ (UIActivityViewController *) shareItems:(BLCMedia *)thingToShare {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (thingToShare.caption.length > 0) {
+        [itemsToShare addObject:thingToShare.caption];
+    }
+    
+    if (thingToShare.image) {
+        [itemsToShare addObject:thingToShare.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+    
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-    [self presentViewController:activityVC animated:YES completion:nil];
+        return activityVC;
+    }
+    return 0;
 }
 
 

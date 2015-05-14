@@ -39,11 +39,6 @@
     self.scrollView.delegate = self;
     self.scrollView.backgroundColor = [UIColor whiteColor];
     
-    self.shareButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    [self.shareButton setTitle:NSLocalizedString(@"Share", @"sharing") forState:UIControlStateNormal];
-    [self.shareButton addTarget:self.scrollView action:@selector(shareItems:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollView addSubview:self.shareButton];
-    
     [self.view addSubview:self.scrollView];
     
     self.imageView = [UIImageView new];
@@ -61,10 +56,16 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
+    self.shareButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    [self.shareButton setTitle:NSLocalizedString(@"Share", @"sharing") forState:UIControlStateNormal];
+    [self.shareButton addTarget:self action:@selector(shareItems:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.shareButton];
 }
 
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
     self.scrollView.frame = self.view.bounds;
     
     CGSize scrollViewFrameSize = self.scrollView.frame.size;
@@ -78,14 +79,12 @@
     self.scrollView.maximumZoomScale = 1;
     
     //share button
-    self.shareButton.frame = CGRectMake(self.scrollView.bounds.size.width - 20, 50, 100, 50);
-
+    self.shareButton.frame = CGRectMake(self.view.bounds.size.width - 60, 20, 40, 20);
+    [self.view bringSubviewToFront:self.shareButton];
 }
 
-- (void)shareItems {
-    //call BLCShareStuff to implement the UIActivityViewController
-    //what goes here
-    
+- (void)shareItems:(UIButton *)sender {
+    [self presentViewController:[BLCShareStuff shareItems:self.media] animated:YES completion:nil];
 }
 
 - (void)centerScrollView {

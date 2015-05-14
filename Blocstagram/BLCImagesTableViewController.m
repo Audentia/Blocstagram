@@ -158,22 +158,7 @@
 }
 
 - (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
-    NSMutableArray *itemsToShare = [NSMutableArray array];
-    
-    if (cell.mediaItem.caption.length > 0) {
-        [itemsToShare addObject:cell.mediaItem.caption];
-    }
-    
-    if (cell.mediaItem.image) {
-        [itemsToShare addObject:cell.mediaItem.image];
-    }
-    
-    if (itemsToShare.count > 0) {
-   //call BLCShareStuff to implement the UIActivityViewController
-        //what goes here
-        BLCShareStuff *shareNow = [[BLCShareStuff alloc] init];
-        [shareNow shareItems:itemsToShare];
-    }
+    [self presentViewController:[BLCShareStuff shareItems:cell.mediaItem] animated:YES completion:nil];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate

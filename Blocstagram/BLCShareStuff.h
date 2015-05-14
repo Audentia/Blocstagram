@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "BLCMedia.h"
 
-@interface BLCShareStuff : UIViewController
+@interface BLCShareStuff : NSObject
+
++ (UIActivityViewController *) shareItems:(BLCMedia *)thingToShare;
 
 @end
