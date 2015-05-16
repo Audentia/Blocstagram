@@ -161,6 +161,10 @@
     [self presentViewController:[BLCShareStuff shareItems:cell.mediaItem] animated:YES completion:nil];
 }
 
+- (void) cell:(BLCMediaTableViewCell *)cell didTwoTapCaptionLabel:(UILabel *)label {
+    [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+}
+
 #pragma mark - UIViewControllerTransitioningDelegate
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
