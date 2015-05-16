@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
-
+@property (nonatomic, strong) UITapGestureRecognizer *twoTapGestureRecognizer;
 
 
 @end
@@ -69,6 +69,11 @@ static NSParagraphStyle *paragraphStyle;
         self.longPressGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
         
+        self.twoTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoTapFired:)];
+        self.twoTapGestureRecognizer.numberOfTouchesRequired = 2;
+        self.twoTapGestureRecognizer.delegate = self;
+        [self.usernameAndCaptionLabel addGestureRecognizer:self.twoTapGestureRecognizer];
+        
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.usernameAndCaptionLabel.numberOfLines = 0;
         self.commentLabel = [[UILabel alloc] init];
@@ -106,6 +111,10 @@ static NSParagraphStyle *paragraphStyle;
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self.delegate cell:self didLongPressImageView:self.mediaImageView];
     }
+}
+
+- (void) twoTapFired:(UITapGestureRecognizer *)sender {
+    [self.delegate cell:self didTwoTapCaptionLabel:self.usernameAndCaptionLabel];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
