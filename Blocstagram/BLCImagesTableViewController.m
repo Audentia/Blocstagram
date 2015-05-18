@@ -140,6 +140,14 @@
     return cell;
 }
 
+//- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+//    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+//        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+//    }
+//}
+
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLCMedia *item = self.mediaItemsFromDataSource[indexPath.row];
     return [BLCMediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
@@ -161,8 +169,10 @@
     [self presentViewController:[BLCShareStuff shareItems:cell.mediaItem] animated:YES completion:nil];
 }
 
-- (void) cell:(BLCMediaTableViewCell *)cell didTwoTapCaptionLabel:(UILabel *)label {
+- (void) cell:(BLCMediaTableViewCell *)cell didTwoTapImageView:(UIImageView *)imageView {
+    if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
     [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+    }
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
