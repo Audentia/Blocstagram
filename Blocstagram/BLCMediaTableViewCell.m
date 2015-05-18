@@ -72,10 +72,13 @@ static NSParagraphStyle *paragraphStyle;
         self.twoTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoTapFired:)];
         self.twoTapGestureRecognizer.numberOfTouchesRequired = 2;
         self.twoTapGestureRecognizer.delegate = self;
-        [self.usernameAndCaptionLabel addGestureRecognizer:self.twoTapGestureRecognizer];
+        [self.mediaImageView addGestureRecognizer:self.twoTapGestureRecognizer];
         
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.usernameAndCaptionLabel.numberOfLines = 0;
+        
+   
+        
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
         
@@ -114,7 +117,7 @@ static NSParagraphStyle *paragraphStyle;
 }
 
 - (void) twoTapFired:(UITapGestureRecognizer *)sender {
-    [self.delegate cell:self didTwoTapCaptionLabel:self.usernameAndCaptionLabel];
+    [self.delegate cell:self didTwoTapImageView:self.mediaImageView];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -186,7 +189,7 @@ static NSParagraphStyle *paragraphStyle;
     if (_mediaItem.image) {
         self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
     } else {
-        self.imageHeightConstraint.constant = 0;
+        self.imageHeightConstraint.constant = 100;
     }
     
     // Hide the line between cells
