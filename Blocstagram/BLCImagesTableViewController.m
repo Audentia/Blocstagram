@@ -140,12 +140,12 @@
     return cell;
 }
 
-//- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
-//    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
-//        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
-//    }
-//}
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+    }
+}
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -173,6 +173,11 @@
     if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
     [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
     }
+}
+
+- (void) cellDidPressLikeButton:(BLCMediaTableViewCell *)cell {
+    [[BLCDataSource sharedInstance] toggleLikeOnMediaItem:cell.mediaItem];
+//    [[BLCDataSource sharedInstance] updateNumberOfLikes:cell.mediaItem];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
