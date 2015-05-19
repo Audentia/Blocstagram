@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class BLCMedia, BLCMediaTableViewCell, BLCComposeCommentView;
+@class BLCMediaTableViewCell, BLCMedia, BLCComposeCommentView;
 
 @protocol BLCMediaTableViewCellDelegate <NSObject>
 
