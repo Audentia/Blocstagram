@@ -320,11 +320,11 @@
     NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
     NSDictionary *parameters = @{@"access_token": self.accessToken};
     
-    [self.instagramOperationManager GET:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        <#code#>
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        <#code#>
-    }];
+//    [self.instagramOperationManager GET:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        <#code#>
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        <#code#>
+//    }];
     
     [self reloadMediaItem:mediaItem];
 }
