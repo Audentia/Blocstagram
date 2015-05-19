@@ -13,6 +13,9 @@
 		C30BD0351AF1FFF300D39A85 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD0341AF1FFF300D39A85 /* BLCAppDelegate.m */; };
 		C30BD03D1AF1FFF300D39A85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30BD03C1AF1FFF300D39A85 /* Images.xcassets */; };
 		C30BD04C1AF1FFF300D39A85 /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */; };
+		C3A32AAE1B09882D0008A95F /* BLCCircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A32AAD1B09882D0008A95F /* BLCCircleSpinnerView.m */; };
+		C3A32AB11B0990830008A95F /* BLCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A32AB01B0990830008A95F /* BLCLikeButton.m */; };
+		C3A32AB41B0A93860008A95F /* BLCLikeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A32AB31B0A93860008A95F /* BLCLikeLabel.m */; };
 		C3B1F10C1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B1F10B1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m */; };
 		C3C15BEC1AF203B7009B4A5F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C15BE21AF203B7009B4A5F /* 1.jpg */; };
 		C3C15BED1AF203B7009B4A5F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C15BE31AF203B7009B4A5F /* 2.jpg */; };
@@ -59,6 +62,12 @@
 		C30BD0451AF1FFF300D39A85 /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30BD04A1AF1FFF300D39A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
+		C3A32AAC1B09882D0008A95F /* BLCCircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCircleSpinnerView.h; sourceTree = "<group>"; };
+		C3A32AAD1B09882D0008A95F /* BLCCircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCircleSpinnerView.m; sourceTree = "<group>"; };
+		C3A32AAF1B0990830008A95F /* BLCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLikeButton.h; sourceTree = "<group>"; };
+		C3A32AB01B0990830008A95F /* BLCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLikeButton.m; sourceTree = "<group>"; };
+		C3A32AB21B0A93860008A95F /* BLCLikeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLikeLabel.h; sourceTree = "<group>"; };
+		C3A32AB31B0A93860008A95F /* BLCLikeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLikeLabel.m; sourceTree = "<group>"; };
 		C3B1F10A1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = "<group>"; };
 		C3B1F10B1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = "<group>"; };
 		C3C15BE21AF203B7009B4A5F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -151,6 +160,12 @@
 				C3C961AE1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m */,
 				C3B1F10A1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.h */,
 				C3B1F10B1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m */,
+				C3A32AAC1B09882D0008A95F /* BLCCircleSpinnerView.h */,
+				C3A32AAD1B09882D0008A95F /* BLCCircleSpinnerView.m */,
+				C3A32AAF1B0990830008A95F /* BLCLikeButton.h */,
+				C3A32AB01B0990830008A95F /* BLCLikeButton.m */,
+				C3A32AB21B0A93860008A95F /* BLCLikeLabel.h */,
+				C3A32AB31B0A93860008A95F /* BLCLikeLabel.m */,
 				C3C961B01B01D29F00DC9953 /* BLCShareStuff.h */,
 				C3C961B11B01D29F00DC9953 /* BLCShareStuff.m */,
 				C3C15C021AF4895C009B4A5F /* BLCDataSource.h */,
@@ -364,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A32AB11B0990830008A95F /* BLCLikeButton.m in Sources */,
 				C3C15BFB1AF4862A009B4A5F /* BLCUser.m in Sources */,
 				C3C961AF1B01BA1A00DC9953 /* BLCMediaFullScreenAnimator.m in Sources */,
 				C30BD0351AF1FFF300D39A85 /* BLCAppDelegate.m in Sources */,
@@ -373,8 +389,10 @@
 				C3C961B21B01D29F00DC9953 /* BLCShareStuff.m in Sources */,
 				C3C15C011AF488B9009B4A5F /* BLCComment.m in Sources */,
 				C3B1F10C1AFDEE8100BF77C1 /* BLCMediaFullScreenViewController.m in Sources */,
+				C3A32AB41B0A93860008A95F /* BLCLikeLabel.m in Sources */,
 				C3081BEC1AF5C29F00559C83 /* BLCMediaTableViewCell.m in Sources */,
 				C3C15C041AF4895C009B4A5F /* BLCDataSource.m in Sources */,
+				C3A32AAE1B09882D0008A95F /* BLCCircleSpinnerView.m in Sources */,
 				C3EEC7F71AFAE92400085A4B /* BLCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
