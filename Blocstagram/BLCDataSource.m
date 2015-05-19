@@ -292,7 +292,9 @@
             //save to disk
             [self writeData];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = BLCLikeStateNotLiked;
+//            mediaItem.likeState = BLCLikeStateNotLiked;
+            mediaItem.likeState = BLCLikeStateLiked;
+            mediaItem.numberOfLikes ++;
             [self reloadMediaItem:mediaItem];
         }];
         
@@ -306,7 +308,10 @@
             //save to disk
             [self writeData];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = BLCLikeStateLiked;
+//            mediaItem.likeState = BLCLikeStateLiked;
+            mediaItem.likeState = BLCLikeStateNotLiked;
+            mediaItem.numberOfLikes --;
+
             [self reloadMediaItem:mediaItem];
         }];
         
@@ -315,18 +320,36 @@
     [self reloadMediaItem:mediaItem];
 }
 
-- (void)updateNumberOfLikes:(BLCMedia *)mediaItem {
-//    GET number of users who have liked, and get integer number from it
-    NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
-    NSDictionary *parameters = @{@"access_token": self.accessToken};
+
+
+#pragma mark - Comments
+
+- (void) commentOnMediaItem:(BLCMedia *)mediaItem withCommentText:(NSString *)commentText {
+    if (!commentText || commentText.length == 0) {
+        return;
+    }
     
-//    [self.instagramOperationManager GET:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        <#code#>
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        <#code#>
-//    }];
+    NSString *urlString = [NSString stringWithFormat:@"media/%@/comments", mediaItem.idNumber];
+    NSDictionary *parameters = @{@"access_token": self.accessToken, @"text": commentText};
     
-    [self reloadMediaItem:mediaItem];
+    [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        mediaItem.temporaryComment = nil;
+        
+        NSString *refreshMediaUrlString = [NSString stringWithFormat:@"media/%@", mediaItem.idNumber];
+        NSDictionary *parameters = @{@"access_token": self.accessToken};
+        [self.instagramOperationManager GET:refreshMediaUrlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            BLCMedia *newMediaItem = [[BLCMedia alloc] initWithDictionary:responseObject];
+            NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+            NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
+            [mutableArrayWithKVO replaceObjectAtIndex:index withObject:newMediaItem];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self reloadMediaItem:mediaItem];
+        }];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        NSLog(@"Response: %@", operation.responseString);
+        [self reloadMediaItem:mediaItem];
+    }];
 }
 
 - (void) reloadMediaItem:(BLCMedia *)mediaItem {
