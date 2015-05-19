@@ -20,6 +20,7 @@
         self.user = [[BLCUser alloc] initWithDictionary:mediaDictionary[@"user"]];
         NSString *standardResolutionImageURLString = mediaDictionary[@"images"][@"standard_resolution"][@"url"];
         NSURL *standardResolutionImageURL = [NSURL URLWithString:standardResolutionImageURLString];
+        self.numberOfLikes = [mediaDictionary[@"likes"][@"count"] integerValue];
         
         if (standardResolutionImageURL) {
             self.mediaURL = standardResolutionImageURL;
@@ -77,6 +78,7 @@
         self.caption = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(caption))];
         self.comments = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(comments))];
         self.likeState = [aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(likeState))];
+        self.numberOfLikes = [aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(likeState))];
     }
     
     return self;
@@ -90,6 +92,8 @@
     [aCoder encodeObject:self.caption forKey:NSStringFromSelector(@selector(caption))];
     [aCoder encodeObject:self.comments forKey:NSStringFromSelector(@selector(comments))];
     [aCoder encodeInteger:self.likeState forKey:NSStringFromSelector(@selector(likeState))];
+    [aCoder encodeInteger:self.numberOfLikes forKey:NSStringFromSelector(@selector(likeState))];
+
 }
 
 @end
