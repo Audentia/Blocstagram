@@ -56,6 +56,7 @@
     [super viewWillLayoutSubviews];
     
     CGRect cropRect = CGRectZero;
+    CGFloat width = CGRectGetWidth(self.view.bounds);
     
     CGFloat edgeSize = MIN(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     cropRect.size = CGSizeMake(edgeSize, edgeSize);
@@ -66,6 +67,12 @@
     self.cropBox.center = CGPointMake(size.width / 2, size.height / 2);
     self.scrollView.frame = self.cropBox.frame;
     self.scrollView.clipsToBounds = NO;
+    
+    self.cropBox.topView.frame = CGRectMake(0, self.topLayoutGuide.length, width, 44);
+    
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.cropBox.topView.frame) + width;
+    CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
+    self.cropBox.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
     
     [self recalculateZoomScale];
     

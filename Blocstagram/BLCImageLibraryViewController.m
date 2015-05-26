@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "BLCCropImageViewController.h"
 
-@interface BLCImageLibraryViewController () <BLCCropImageViewControllerDelegate>
+@interface BLCImageLibraryViewController () <BLCCropImageViewControllerDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) ALAssetsLibrary *library;
 
@@ -59,12 +59,12 @@
     [super viewWillLayoutSubviews];
     
     CGFloat width = CGRectGetWidth(self.view.frame);
-    CGFloat minWidth = 100;
-    NSInteger divisor = width / minWidth;
-    CGFloat cellSize = width / divisor;
+//    CGFloat minWidth = 100;
+//    NSInteger divisor = width / minWidth;
+//    CGFloat cellSize = width / divisor;
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
+    flowLayout.itemSize = [self collectionView:self.collectionView layout:nil sizeForItemAtIndexPath:nil];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     flowLayout.headerReferenceSize = CGSizeMake(width, 30);
@@ -118,6 +118,20 @@
     }
     
     return 0;
+}
+
+- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat width = CGRectGetWidth(collectionView.frame);
+//    CGFloat height = CGRectGetHeight(collectionView.frame);
+//    CGFloat heightConstraint = height / width * CGRectGetWidth(self.view.frame);
+    CGFloat minWidth = 100;
+    NSInteger divisor = width / minWidth;
+    CGFloat cellSize = width / divisor;
+    
+    CGSize sizeOfItem = CGSizeMake(cellSize, cellSize);
+    
+    return sizeOfItem;
 }
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

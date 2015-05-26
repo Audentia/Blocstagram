@@ -10,4 +10,7 @@
 
 @interface BLCCropBox : UIView
 
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
+
 @end

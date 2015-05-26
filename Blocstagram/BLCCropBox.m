@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSArray *horizontalLines;
 @property (nonatomic, strong) NSArray *verticalLines;
 
+
+
 @end
 
 
@@ -29,6 +31,11 @@
             [self addSubview:lineView];
         }
     }
+    UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+    self.topView.barTintColor = whiteBG;
+    self.bottomView.barTintColor = whiteBG;
+    self.topView.alpha = 0.5;
+    self.bottomView.alpha = 0.5;
     return self;
 }
 
@@ -52,6 +59,18 @@
         
         verticalLine.frame = verticalFrame;
     }
+
+}
+
+- (void) createViews {
+    self.topView = [UIToolbar new];
+    self.bottomView = [UIToolbar new];
+    
+    UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+    self.topView.barTintColor = whiteBG;
+    self.bottomView.barTintColor = whiteBG;
+    self.topView.alpha = 0.5;
+    self.bottomView.alpha = 0.5;
 }
 
 - (NSArray *) horizontalLines {
