@@ -26,6 +26,7 @@
 @property (nonatomic, assign) CGFloat lastKeyboardAdjustment;
 
 @property (nonatomic, strong) UIPopoverController *cameraPopover;
+@property (nonatomic, strong) UIPopoverController *sharePopover;
 
 
 @end
@@ -301,7 +302,15 @@
 }
 
 - (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
-    [self presentViewController:[BLCShareStuff shareItems:cell.mediaItem] animated:YES completion:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:[BLCShareStuff shareItems:cell.mediaItem] animated:YES completion:nil];
+
+    } else {
+        self.sharePopover = [[UIPopoverController alloc] initWithContentViewController:[BLCShareStuff shareItems:cell.mediaItem]];
+        [self.sharePopover presentPopoverFromRect:CGRectMake(imageView.frame.size.width / 2, imageView.frame
+                                                             .size.height / 2, imageView.frame.size.width / 2, imageView.frame
+                                                             .size.height / 2) inView:imageView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 - (void) cell:(BLCMediaTableViewCell *)cell didTwoTapImageView:(UIImageView *)imageView {

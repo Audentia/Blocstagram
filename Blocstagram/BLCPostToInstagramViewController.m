@@ -235,8 +235,9 @@
             
             [self.filterImages addObject:image];
             [self.filterTitles addObject:filterTitle];
-            
+//            [self collectionView:self.filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:newIndex inSection:0]];
             [self.filterCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:newIndex inSection:0]]];
+//            [self.filterCollectionView reloadData];
         });
     }
 }
