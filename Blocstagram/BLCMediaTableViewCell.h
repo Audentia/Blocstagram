@@ -28,6 +28,10 @@
 @property (nonatomic, weak) id <BLCMediaTableViewCellDelegate> delegate;
 @property (nonatomic, strong, readonly) BLCComposeCommentView *commentView;
 
+@property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
+
 
 + (CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
 

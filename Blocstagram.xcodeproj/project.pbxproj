@@ -13,6 +13,12 @@
 		C30BD0351AF1FFF300D39A85 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD0341AF1FFF300D39A85 /* BLCAppDelegate.m */; };
 		C30BD03D1AF1FFF300D39A85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30BD03C1AF1FFF300D39A85 /* Images.xcassets */; };
 		C30BD04C1AF1FFF300D39A85 /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */; };
+		C33E96C31B1A85C7005F5E8A /* BLCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E96C21B1A85C7005F5E8A /* BLCUserTests.m */; };
+		C33E96C51B1A871A005F5E8A /* BLCCommentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E96C41B1A871A005F5E8A /* BLCCommentTests.m */; };
+		C33E96C71B1A87BB005F5E8A /* BLCMediaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E96C61B1A87BB005F5E8A /* BLCMediaTests.m */; };
+		C33E96C91B1A940F005F5E8A /* BLCComposeCommentViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E96C81B1A940F005F5E8A /* BLCComposeCommentViewTests.m */; };
+		C33E96CB1B1A949C005F5E8A /* BLCMediaTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E96CA1B1A949C005F5E8A /* BLCMediaTableViewCellTests.m */; };
+		C33E96CD1B1A9561005F5E8A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33E96CC1B1A9561005F5E8A /* 1.jpg */; };
 		C380B7C91B0D3C14003694E4 /* BLCCropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C380B7C81B0D3C14003694E4 /* BLCCropBox.m */; };
 		C380B7CC1B0D4545003694E4 /* BLCCropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C380B7CB1B0D4545003694E4 /* BLCCropImageViewController.m */; };
 		C380B7CF1B0D4F40003694E4 /* BLCImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C380B7CE1B0D4F40003694E4 /* BLCImageLibraryViewController.m */; };
@@ -71,6 +77,12 @@
 		C30BD0451AF1FFF300D39A85 /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30BD04A1AF1FFF300D39A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
+		C33E96C21B1A85C7005F5E8A /* BLCUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCUserTests.m; sourceTree = "<group>"; };
+		C33E96C41B1A871A005F5E8A /* BLCCommentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCommentTests.m; sourceTree = "<group>"; };
+		C33E96C61B1A87BB005F5E8A /* BLCMediaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTests.m; sourceTree = "<group>"; };
+		C33E96C81B1A940F005F5E8A /* BLCComposeCommentViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComposeCommentViewTests.m; sourceTree = "<group>"; };
+		C33E96CA1B1A949C005F5E8A /* BLCMediaTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCellTests.m; sourceTree = "<group>"; };
+		C33E96CC1B1A9561005F5E8A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		C380B7C71B0D3C14003694E4 /* BLCCropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropBox.h; sourceTree = "<group>"; };
 		C380B7C81B0D3C14003694E4 /* BLCCropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCropBox.m; sourceTree = "<group>"; };
 		C380B7CA1B0D4545003694E4 /* BLCCropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropImageViewController.h; sourceTree = "<group>"; };
@@ -240,6 +252,11 @@
 			children = (
 				C30BD04B1AF1FFF300D39A85 /* BlocstagramTests.m */,
 				C30BD0491AF1FFF300D39A85 /* Supporting Files */,
+				C33E96C21B1A85C7005F5E8A /* BLCUserTests.m */,
+				C33E96C41B1A871A005F5E8A /* BLCCommentTests.m */,
+				C33E96C61B1A87BB005F5E8A /* BLCMediaTests.m */,
+				C33E96C81B1A940F005F5E8A /* BLCComposeCommentViewTests.m */,
+				C33E96CA1B1A949C005F5E8A /* BLCMediaTableViewCellTests.m */,
 			);
 			path = BlocstagramTests;
 			sourceTree = "<group>";
@@ -247,6 +264,7 @@
 		C30BD0491AF1FFF300D39A85 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C33E96CC1B1A9561005F5E8A /* 1.jpg */,
 				C30BD04A1AF1FFF300D39A85 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -380,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33E96CD1B1A9561005F5E8A /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +472,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33E96C31B1A85C7005F5E8A /* BLCUserTests.m in Sources */,
 				C30BD04C1AF1FFF300D39A85 /* BlocstagramTests.m in Sources */,
+				C33E96CB1B1A949C005F5E8A /* BLCMediaTableViewCellTests.m in Sources */,
+				C33E96C91B1A940F005F5E8A /* BLCComposeCommentViewTests.m in Sources */,
+				C33E96C71B1A87BB005F5E8A /* BLCMediaTests.m in Sources */,
+				C33E96C51B1A871A005F5E8A /* BLCCommentTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
