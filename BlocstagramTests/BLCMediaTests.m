@@ -28,19 +28,20 @@
 
 - (void)testThatInitializationWorks {
     NSDictionary *sourceDictionary = @{@"id": @"3856",
-                                       @"mediaURL" : @"www.example.com"};
-//                                       @"likes" : @"27"};
-//                                       @"caption" : @"what a photo",
-//                                       @"comments" : @"damn gurrrrl"};
+                                       @"images" : @{@"standard_resolution" : @{@"url" : @"http://www.example.com"}},
+                                       @"likes" : @{@"count" : @7},
+                                       @"caption" : @{@"text" : @"yo boy"},
+                                       @"comments" : @{@"data" : @[@{@"text" : @"hey"}]}};
+    
+    
     
     BLCMedia *testMedia = [[BLCMedia alloc] initWithDictionary:sourceDictionary];
-//    NSNumber *likes = [[NSNumber alloc] initWithInteger:testMedia.numberOfLikes];
     
     XCTAssertEqualObjects(testMedia.idNumber, sourceDictionary[@"id"], @"The ID number should be equal");
-//    XCTAssertEqualObjects(testMedia.mediaURL, sourceDictionary[@"mediaURL"], @"The URL should be equal");
-//    XCTAssertEqual(likes, sourceDictionary[@"likes"], @"The number of Likes should be equal");
-//    XCTAssertEqualObjects(testMedia.caption, sourceDictionary[@"caption"], @"The Caption should be equal");
-//    XCTAssertEqualObjects(testMedia.comments, sourceDictionary[@"comments"], @"The Comments should be equal");
+    XCTAssertEqualObjects(testMedia.mediaURL.absoluteString, sourceDictionary[@"images"][@"standard_resolution"][@"url"], @"The URL should be equal");
+    XCTAssertEqual(testMedia.numberOfLikes, [sourceDictionary[@"likes"][@"count"] integerValue], @"The number of Likes should be equal");
+    XCTAssertEqualObjects(testMedia.caption, sourceDictionary[@"caption"][@"text"], @"The Caption should be equal");
+    XCTAssertEqual(testMedia.comments.count, [sourceDictionary[@"comments"][@"data"] count], @"The Comments should be equal");
 }
 
 @end
