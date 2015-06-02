@@ -49,14 +49,12 @@
     
     testBLCMedia.image = samplePicture;
     
-    BLCMediaTableViewCell *testCell = [[BLCMediaTableViewCell alloc] init];
     
-    CGFloat cellHeight = testCell.imageHeightConstraint.constant;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        XCTAssertEqual([BLCMediaTableViewCell heightForMediaItem:testBLCMedia width:testBLCMedia.image.size.width], cellHeight);
+        XCTAssertEqual([BLCMediaTableViewCell heightForMediaItem:testBLCMedia width:300], 414.5);
     } else {
-        XCTAssertEqual([BLCMediaTableViewCell heightForMediaItem:testBLCMedia width:testBLCMedia.image.size.width], testBLCMedia.image.size.height);
+        XCTAssertEqual([BLCMediaTableViewCell heightForMediaItem:testBLCMedia width:300], 509.5);
     }
     
 }
